@@ -8,18 +8,20 @@
     <title>CryptoSquare</title>
   </head>
   <body>
-    <div class="jumbotron title">
-      <h1>Roman Numeral Converter</h1>
+    <div class="container">
+      <div class="jumbotron title">
+        <h1>Cryptosquare Generator</h1>
+      </div>
+      <div class="container bg-info">
+        <form class="crypto-form" action="index.html" method="post">
+          <label for="text-input">Gimme a string</label>
+          <input type="text" name="name" placeholder='String go here' value="" id="text-input">
+          <button type="submit" name="button" class="btn btn-info">Encrypt</button>
+        </form>
+      </div>
+      <div class="container bg-info">
+        <p class="result"></p>
+      </div>
     </div>
-    <div class="container bg-info">
-          <form class="roman-form" action="index.html" method="post">
-            <label for="text-input">Put in roman numberals</label>
-            <input type="text" name="name" placeholder='roman go here' value="" id="text-input">
-            <button type="submit" name="button" class="btn btn-info">Convert</button>
-          </form>
-        </div>
-        <div class="container bg-info">
-          <p class="result"></p>
-        </div>
   </body>
 </html>
