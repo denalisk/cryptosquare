@@ -1,8 +1,9 @@
 var encryptor = function(textInput) {
-  var cleanText = textInput.replace(/[^a-z,0-9]/gi, '');
-  var arrayInput = cleanText.split("");
+  var arrayInput = textInput.replace(/[^a-z,0-9,\-]/gi, '').split();
   var number = arrayInput.length;
   nearSquare = Math.ceil(Math.sqrt(number));
+
+
   var sentence = [];
   var word = [];
   var counter = 0;
@@ -18,8 +19,27 @@ var encryptor = function(textInput) {
     }
   }
   sentence.push(word);
-  console.log(sentence);
-  return sentence;
+
+
+  var mainArray = [];
+  for (i=0; i < sentence.length; i++) {
+    for (j=0; j < sentence.length; j++) {
+      if (sentence[j][i] != undefined) {
+        mainArray.push(sentence[j][i]);
+      } else {
+        continue;
+      }
+    }
+  }
+  var codeText = "";
+  for (i = 0; i < mainArray.length; i++) {
+    if (i % 5 === 0) {
+      codeText += (" " + mainArray[i]);
+    } else {
+      codeText += mainArray[i];
+    }
+  }
+  return codeText;
 };
 
 $(function(){
@@ -27,7 +47,6 @@ $(function(){
     event.preventDefault();
     var textInput = $("#text-input").val();
     var textOutput = encryptor(textInput);
-
     $(".result").text(textOutput);
   })
 });
