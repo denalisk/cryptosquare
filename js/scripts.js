@@ -1,5 +1,17 @@
+var race = function(textInput) {
+  var d = new Date();
+  var start = d.getTime();
+  for (i=0; i<100000; i++) {
+    encryptor(textInput);
+  }
+  var a = new Date();
+  var end = a.getTime();
+  var elapsed = end - start;
+  console.log(elapsed);
+}
+
 var encryptor = function(textInput) {
-  var arrayInput = textInput.replace(/[^a-z,0-9,\-]/gi, '').split('');
+  var arrayInput = textInput.replace(/[^a-z0-9\-]/gi, '').split('');
   var number = arrayInput.length;
   var nearSquare = Math.ceil(Math.sqrt(number));
   var sentence = [];
@@ -39,7 +51,6 @@ $(function(){
   $("form.crypto-form").submit(function(event) {
     event.preventDefault();
     var textInput = $("#text-input").val();
-    var textOutput = encryptor(textInput);
-    $(".result").text(textOutput);
+    race(textInput);
   })
 });
